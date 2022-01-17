@@ -1,9 +1,9 @@
 import React from 'react'
 import { Wrapper } from './styles';
 
-const Button = ({ icon }) => {
+const Button = ({ icon, handleClick }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={ handleClick }>
       { icon }
     </Wrapper>
   );
