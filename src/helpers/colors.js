@@ -29,6 +29,48 @@ const PALETTE_COLORS = Object.freeze([
     '#FFFDA2',
     '#BAFFB4',
   ],
+  [
+    '#632626',
+    '#9D5353',
+    '#BF8B67',
+    '#DACC96',
+  ],
+  [
+    '#6867AC',
+    '#A267AC',
+    '#CE7BB0',
+    '#FFBCD1',
+  ],
+  [
+    '#041C32',
+    '#04293A',
+    '#064663',
+    '#ECB365',
+  ],
+  [
+    '#FFAFAF',
+    '#FBFFE2',
+    '#FFEBCC',
+    '#FF9999',
+  ],
+  [
+    '#8E806A',
+    '#C3B091',
+    '#E4CDA7',
+    '#FFE6BC',
+  ],
+  [
+    '#1F1D36',
+    '#3F3351',
+    '#864879',
+    '#E9A6A6',
+  ],
+  [
+    '#6F69AC',
+    '#95DAC1',
+    '#FFEBA1',
+    '#FD6F96',
+  ],
 ]);
 
 export default PALETTE_COLORS;

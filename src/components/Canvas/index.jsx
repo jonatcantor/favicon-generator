@@ -12,12 +12,33 @@ const Canvas = ({ isDraw, width, height, setDrawCanvas }) => {
     const canvasCTX = canvasDOM.getContext('2d', { alpha: false });
     const colors = PALLETE_COLORS[Math.floor(Math.random() * PALLETE_COLORS.length)];
 
+    const drawCircle = (color, size, isStroke) => {
+      canvasCTX.beginPath();
+      canvasCTX.arc(150, 150, size / 2, 0, 360 * Math.PI / 180, false);
+      canvasCTX.closePath();
+      
+      if(isStroke) {
+        canvasCTX.strokeStyle = colors[color];
+        canvasCTX.stroke();
+      } else {        
+        canvasCTX.fillStyle = colors[color];
+        canvasCTX.fill();
+      }
+    }
+
     const drawSquare = (color, size) => {
-      canvasCTX.fillStyle = colors[color];
       canvasCTX.save();
       canvasCTX.translate(150, 150);
       canvasCTX.rotate(45 * Math.PI / 180);
-      canvasCTX.fillRect(size / -2, size / -2, size, size);
+      
+      if(isStroke) {
+        canvasCTX.strokeStyle = colors[color];
+        canvasCTX.strokeRect(size / -2, size / -2, size, size);
+      } else {        
+        canvasCTX.fillStyle = colors[color];
+        canvasCTX.fillRect(size / -2, size / -2, size, size);
+      }
+
       canvasCTX.restore();
     }
 
@@ -27,10 +48,22 @@ const Canvas = ({ isDraw, width, height, setDrawCanvas }) => {
       canvasCTX.fillRect(0, 0, 300, 300);
     }
 
+    const randomShape = Math.floor(Math.random() * 2);
+    const isStroke = Math.floor(Math.random() * 2);
+    
     drawBackground(0);
-    drawSquare(1, 150);
-    drawSquare(2, 100);
-    drawSquare(3, 50);
+
+    if(randomShape === 0) {
+      drawSquare(1, 150, isStroke);
+      drawSquare(2, 100, isStroke);
+      drawSquare(3, 50 , isStroke);
+    }
+
+    else {
+      drawCircle(1, 150, isStroke);
+      drawCircle(2, 100, isStroke);
+      drawCircle(3, 50 , isStroke);
+    }
 
     setDrawCanvas(false);
   }, [isDraw, width, height, setDrawCanvas]);
