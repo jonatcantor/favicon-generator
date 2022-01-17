@@ -1,6 +1,16 @@
+import GlobalStyles from "./GlobalStyles";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+
 const App = () => {
   return (
-    <div className="App">Hi!</div>
+    <>
+      <GlobalStyles />
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
