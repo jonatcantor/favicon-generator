@@ -2,14 +2,14 @@ import { useEffect, useRef } from "react";
 import { Wrapper } from "./styles";
 import PALLETE_COLORS from '../../helpers/colors';
 
-const Canvas = ({ isDraw, width, height, setDrawCanvas }) => {
+const Canvas = ({ isDraw, width, height, setDrawCanvas, setCanvasData }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     if(!isDraw) return;
-
+    
     const canvasDOM = canvasRef.current;
-    const canvasCTX = canvasDOM.getContext('2d', { alpha: false });
+    const canvasCTX = canvasDOM.getContext('2d');
     const colors = PALLETE_COLORS[Math.floor(Math.random() * PALLETE_COLORS.length)];
 
     const drawCircle = (color, size, isStroke) => {
@@ -42,17 +42,12 @@ const Canvas = ({ isDraw, width, height, setDrawCanvas }) => {
       canvasCTX.restore();
     }
 
-    const drawBackground = (color) => {
-      canvasCTX.clearRect(0, 0, width, height);
-      canvasCTX.fillStyle = colors[color];
-      canvasCTX.fillRect(0, 0, 300, 300);
-    }
-
     const randomShape = Math.floor(Math.random() * 2);
     const isStroke = Math.floor(Math.random() * 2);
-    
-    drawBackground(0);
 
+    canvasCTX.clearRect(0, 0, 300, 300);
+    drawCircle(0, 300, false);
+    
     if(randomShape === 0) {
       drawSquare(1, 150, isStroke);
       drawSquare(2, 100, isStroke);
@@ -66,7 +61,8 @@ const Canvas = ({ isDraw, width, height, setDrawCanvas }) => {
     }
 
     setDrawCanvas(false);
-  }, [isDraw, width, height, setDrawCanvas]);
+    setCanvasData(canvasDOM.toDataURL('image/png', 1));
+  }, [isDraw, width, height, setDrawCanvas, setCanvasData]);
 
   return (
     <Wrapper ref={ canvasRef } width={ width } height={ height } />
