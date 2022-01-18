@@ -12,10 +12,6 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
   }
 
-  footer, header {
-    padding: 1rem;
-  }
-
   button, svg {
     transition: 0.25s ease-in-out;
   }
