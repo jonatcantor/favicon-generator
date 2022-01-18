@@ -1,10 +1,10 @@
-import React from 'react'
+import { Wrapper, Link } from './styles';
 
 const Footer = () => {
   return (
-    <footer>
-      Footer
-    </footer>
+    <Wrapper>
+      <Link href='https://jonathancantor.dev' target='_blank' rel='noreferrer'>Jonathan Cantor</Link>
+    </Wrapper>
   );
 }
 

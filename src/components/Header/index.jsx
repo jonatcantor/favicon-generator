@@ -1,10 +1,11 @@
-import React from 'react'
+import { Wrapper, Title, Text } from './styles';
 
 const Header = () => {
   return (
-    <header>
-      Header
-    </header>
+    <Wrapper>
+      <Title>Favicon Generator</Title>
+      <Text>Generate Random PNG Favicons for your Projects</Text>
+    </Wrapper>
   );
 }
 
