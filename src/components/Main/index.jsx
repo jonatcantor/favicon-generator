@@ -28,7 +28,7 @@ const Main = () => {
 
     const downloadImage = document.createElement('a');
     downloadImage.href = imageData;
-    downloadImage.download = 'favicon.png';
+    downloadImage.download = 'favicon.ico';
     downloadImage.click();
     downloadImage.remove();
   }

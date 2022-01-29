@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <Wrapper>
       <Title>Favicon Generator</Title>
-      <Text>Generate Random PNG Favicons for your Projects</Text>
+      <Text>Generate Random .ICO Favicons for your Projects</Text>
     </Wrapper>
   );
 }
